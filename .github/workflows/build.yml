@@ -20,10 +20,7 @@ jobs:
           include-prerelease: true
 
       - name: Change to source directory
-        run: cd Source
-
-      - name: Dotnet
-        run: dotnet --version
+        run: cd Source/Microsoft.Teams.App.Badges
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
