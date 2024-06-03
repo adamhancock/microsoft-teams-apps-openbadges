@@ -1,0 +1,29 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - BadgrBadges
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '2.1.515'
+          include-prerelease: true
+
+      - name: Change to source directory
+        run: cd Source
+
+      - name: Dotnet
+        run: dotnet version
+
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
