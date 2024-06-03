@@ -19,11 +19,8 @@ jobs:
           dotnet-version: '2.1.515'
           include-prerelease: true
 
-      - name: Change to source directory
-        run: cd Source/Microsoft.Teams.App.Badges
-
       - name: Restore NuGet packages
-        run: dotnet restore
+        run: dotnet restore Source/Microsoft.Teams.App.Badges/Microsoft.Teams.App.Badges.csproj
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release Source/Microsoft.Teams.App.Badges/Microsoft.Teams.App.Badges.csproj
