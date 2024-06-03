@@ -8,10 +8,13 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install libdev
+        run: apt update && apt install libssl-dev
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
@@ -23,7 +26,7 @@ jobs:
         run: cd Source
 
       - name: Dotnet
-        run: dotnet version
+        run: dotnet --version
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
