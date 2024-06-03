@@ -22,5 +22,8 @@ jobs:
       - name: Change to source directory
         run: cd Source/Microsoft.Teams.App.Badges
 
+      - name: Restore NuGet packages
+        run: dotnet restore
+
       - name: Build with dotnet
         run: dotnet build --configuration Release
